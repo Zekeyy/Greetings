@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+     <div class="parent-container">
+ <div class ="container">
+     <div class="bubbles">
+         <span style ="--i:11;"></span>
+         <span style ="--i:12;"></span>
+         <span style ="--i:24;"></span>
+         <span style ="--i:10;"></span>
+         <span style ="--i:14;"></span>
+         <span style ="--i:23;"></span>
+         <span style ="--i:18;"></span>
+         <span style ="--i:16;"></span>
+         <span style ="--i:19;"></span>
+         <span style ="--i:20;"></span>
+         <span style ="--i:22;"></span>
+         <span style ="--i:25;"></span>
+         <span style ="--i:18;"></span>
+         <span style ="--i:21;"></span>
+         <span style ="--i:15;"></span>
+         <span style ="--i:13;"></span>
+         <span style ="--i:26;"></span>
+         <span style ="--i:17;"></span>
+         <span style ="--i:13;"></span>
+         <span style ="--i:28;"></span>
+         <span style ="--i:11;"></span>
+         <span style ="--i:12;"></span>
+         <span style ="--i:24;"></span>
+         <span style ="--i:10;"></span>
+         <span style ="--i:14;"></span>
+         <span style ="--i:23;"></span>
+         <span style ="--i:18;"></span>
+         <span style ="--i:16;"></span>
+         <span style ="--i:19;"></span>
+         <span style ="--i:20;"></span>
+         <span style ="--i:22;"></span>
+         <span style ="--i:25;"></span>
+         <span style ="--i:18;"></span>
+         <span style ="--i:21;"></span>
+         <span style ="--i:15;"></span>
+         <span style ="--i:13;"></span>
+         <span style ="--i:26;"></span>
+         <span style ="--i:17;"></span>
+         <span style ="--i:13;"></span>
+         <span style ="--i:28;"></span>
+         <span style ="--i:11;"></span>
+         <span style ="--i:12;"></span>
+         <span style ="--i:24;"></span>
+         <span style ="--i:10;"></span>
+         <span style ="--i:14;"></span>
+         <span style ="--i:23;"></span>
+         <span style ="--i:18;"></span>
+         <span style ="--i:16;"></span>
+         <span style ="--i:19;"></span>
+         <span style ="--i:20;"></span>
+         <span style ="--i:22;"></span>
+         <span style ="--i:25;"></span>
+         <span style ="--i:18;"></span>
+         <span style ="--i:21;"></span>
+         <span style ="--i:15;"></span>
+         <span style ="--i:13;"></span>
+         <span style ="--i:26;"></span>
+         <span style ="--i:17;"></span>
+         <span style ="--i:13;"></span>
+         <span style ="--i:28;"></span>
+     </div>
+ </div>
+</div>
+    <div class="box-overlay">
+        <div class="box">
+            <p class="box-paragraph">Are you made in copper and tellurium?</p>
+            <button class="button yes-btn" id="yesBtn">Yes</button>
+            <button class="button no-btn" id="noBtn">No</button>
+            
+        </div>
+        <button class="button continue-btn" id="continueBtn" style="display:none;">Continue</button>
+    </div>
+    <canvas id="confettiCanvas"></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/confetti-js/1.0.2/confetti.min.js"></script>
+
+
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          var bubbles = document.querySelectorAll('.bubbles span');
+          bubbles.forEach(function (bubble) {
+              var i = bubble.style.getPropertyValue('--i');
+              bubble.style.animationDuration = 'calc(125s / ' + i + ')';
+          });
+
+          var noButton = document.querySelector('#noBtn');
+          var yesButton = document.querySelector('#yesBtn');
+          var question = document.querySelector('.box-paragraph');
+          var continueButton = document.querySelector('#continueBtn');
+
+          function handleClickYes() {
+              question.style.transition = 'opacity 1s';
+              question.style.opacity = 0;
+
+              question.style.animation = 'fadeout 1s forwards';
+
+              setTimeout(function () {
+                  question.textContent = "Because you are Cu -Te HUHUHU";
+                  question.style.animation = 'fadein 1s forwards';
+                  continueButton.style.display = "inline-block";
+                  noButton.style.display = "none";
+                  yesButton.style.display = "none";
+              }, 1000);
+          }
+
+          function handleContinueClick() {
+              var currentText = question.textContent.trim();
+
+              switch (currentText) {
+                  case "Because you are Cu -Te HUHUHU":
+                      question.style.transition = 'opacity 1s';
+                      question.style.opacity = 0;
+
+                      question.style.animation = 'fadeout 1s forwards';
+
+                      setTimeout(function () {
+                          question.textContent = "When I see your face";
+                          question.style.animation = 'fadein 1s forwards';
+                      }, 1000);
+                      break;
+
+                  case "When I see your face":
+                      question.style.transition = 'opacity 1s';
+                      question.style.opacity = 0;
+
+                      question.style.animation = 'fadeout 1s forwards';
+
+                      setTimeout(function () {
+                          question.textContent = "There's not a thing that I would change";
+                          question.style.animation = 'fadein 1s forwards';
+                      }, 1000);
+                      break;
+
+                  case "There's not a thing that I would change":
+                      question.style.transition = 'opacity 1s';
+                      question.style.opacity = 0;
+
+                      question.style.animation = 'fadeout 1s forwards';
+
+                      setTimeout(function () {
+                          question.textContent = "Cause you are amazing just the way you are.";
+                          question.style.animation = 'fadein 1s forwards';
+                      }, 1000);
+                      break;
+                  case "Cause you are amazing just the way you are.":
+                      question.style.transition = 'opacity 1s';
+                      question.style.opacity = 0;
+
+                      question.style.animation = 'fadeout 1s forwards';
+
+                      setTimeout(function () {
+                          question.textContent = "Happy birthday!!!!";
+                          question.style.animation = 'fadein 1s forwards';
+                          triggerConfetti();
+                      }, 1000);
+                      break;
+                  default:
+                      // Do nothing
+                      break;
+              }
+          }
+
+
+          function triggerConfetti() {
+              var canvas = document.getElementById('confettiCanvas');
+              var confettiSettings = {
+                  target: 'confettiCanvas',
+                  max: 150,
+                  size: 1.2,
+                  animate: true,
+                  props: ['circle', 'square'],
+                  colors: [[255, 0, 0], [0, 255, 0], [0, 0, 255]],
+                  clock: 25
+              };
+              var confetti = new ConfettiGenerator(confettiSettings);
+              confetti.render();
+          }
+
+
+          yesButton.addEventListener('click', handleClickYes);
+          continueButton.addEventListener('click', handleContinueClick);
+
+          var noButton = document.querySelector('#noBtn');
+          var box = document.querySelector('.box');
+
+          function moveButtons() {
+              var boxWidth = box.offsetWidth;
+              var boxHeight = box.offsetHeight;
+              var buttonWidth = noButton.offsetWidth;
+              var buttonHeight = noButton.offsetHeight;
+
+              var maxX = boxWidth - buttonWidth;
+              var maxY = boxHeight - buttonHeight;
+
+              var randomX = Math.max(0, Math.min(maxX, Math.floor(Math.random() * maxX)));
+              var randomY = Math.max(0, Math.min(maxY, Math.floor(Math.random() * maxY)));
+
+              noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+          }
+
+          noButton.addEventListener('click', function () {
+              moveButtons();
+          });
+      });
+
+  </script>
+</body>
+</html>
